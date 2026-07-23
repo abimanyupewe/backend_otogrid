@@ -1,0 +1,52 @@
+# Environments
+.env
+.env.*
+!.env.example
+venv/
+.venv/
+env/
+ENV/
+env.bak/
+venv.bak/
+
+# Python Bytecode & Cache
+__pycache__/
+*.py[cod]
+*$py.class
+.pytest_cache/
+.coverage
+htmlcov/
+.tox/
+.mypy_cache/
+.ruff_cache/
+
+# Django Media, Staticfiles & Database
+media/
+staticfiles/
+*.log
+db.sqlite3
+db.sqlite3-journal
+
+# IDE & Code Editors
+.vscode/
+.idea/
+*.swp
+*.swo
+*.sublime-workspace
+*.sublime-project
+
+# OS Generated Files
+.DS_Store
+.DS_Store?
+._*
+.Spotlight-V100
+.Trashes
+ehthumbs.db
+Thumbs.db
+
+# Project Specific Exclusions
+dev/*.pdf
+dev/*.docx
+dev/*.zip
+dev/*.png
+dev/*.jpg
