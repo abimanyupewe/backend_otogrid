@@ -151,7 +151,11 @@ CREATE EXTENSION IF NOT EXISTS postgis;
 ```bash
 python manage.py makemigrations
 python manage.py migrate
+python manage.py showmigrations
 ```
+
+> **Dokumentasi Lengkap Skema & Alur Migrasi:**
+> Untuk detail diagram ERD, histori migrasi, dan panduan rollback database, silakan merujuk ke berkas [dev/DATABASE_SCHEMA_AND_MIGRATIONS.md](file:///home/clara/Project/oto_grid/backend_otogrid/dev/DATABASE_SCHEMA_AND_MIGRATIONS.md).
 
 ---
 
