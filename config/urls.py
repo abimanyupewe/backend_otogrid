@@ -1,9 +1,10 @@
 """
 URL configuration for OtoGrid project.
-Routes endpoints for API v1 (Authentication, Orders) and Swagger OpenAPI documentation.
+Routes endpoints for API v1 (Authentication, Orders), Swagger OpenAPI documentation, and root redirect.
 """
 from django.contrib import admin
 from django.urls import path, include
+from django.views.generic import RedirectView
 from drf_spectacular.views import (
     SpectacularAPIView,
     SpectacularRedocView,
@@ -11,6 +12,10 @@ from drf_spectacular.views import (
 )
 
 urlpatterns = [
+    # Root Redirect to Admin Dashboard
+    path('', RedirectView.as_view(url='/admin/', permanent=False)),
+
+    # Django Admin Interface
     path('admin/', admin.site.urls),
     
     # API v1 Endpoints

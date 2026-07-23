@@ -13,6 +13,7 @@ https://docs.djangoproject.com/en/6.0/ref/settings/
 import os
 from pathlib import Path
 import environ
+from django.urls import reverse_lazy
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -31,7 +32,7 @@ SECRET_KEY = env('SECRET_KEY')
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = env('DEBUG')
 
-ALLOWED_HOSTS = env.list('ALLOWED_HOSTS', default=['localhost', '127.0.0.1'])
+ALLOWED_HOSTS = env.list('ALLOWED_HOSTS', default=['*', 'testserver'])
 
 AUTH_USER_MODEL = 'authentication.User'
 
@@ -41,6 +42,9 @@ AUTH_USER_MODEL = 'authentication.User'
 INSTALLED_APPS = [
     'daphne',
     'channels',
+    'unfold',
+    'unfold.contrib.filters',
+    'unfold.contrib.forms',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
@@ -77,7 +81,7 @@ ROOT_URLCONF = 'config.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [],
+        'DIRS': [BASE_DIR / 'templates'],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
@@ -188,4 +192,69 @@ CHANNEL_LAYERS = {
 
 # Google Gemini API Settings
 GEMINI_API_KEY = env('GEMINI_API_KEY', default='')
+
+
+# Django Unfold Admin Theme Settings
+UNFOLD = {
+    "SITE_TITLE": "OtoGrid Command Center",
+    "SITE_HEADER": "OtoGrid Control Room",
+    "SITE_SUBHEADER": "Hyperlocal Emergency Breakdown & Mechanic Dispatch Engine",
+    "SITE_SYMBOL": "directions_car",
+    "SHOW_HISTORY": True,
+    "SHOW_VIEW_ON_SITE": False,
+    "DASHBOARD_CALLBACK": "apps.orders.presentation.admin_views.dashboard_callback",
+    "COLORS": {
+        "primary": {
+            "50": "238 242 255",
+            "100": "224 231 255",
+            "200": "199 210 254",
+            "300": "165 180 252",
+            "400": "129 140 248",
+            "500": "99 102 241",
+            "600": "79 70 229",
+            "700": "67 56 202",
+            "800": "55 48 163",
+            "900": "49 46 129",
+            "950": "30 27 75",
+        },
+    },
+    "SIDEBAR": {
+        "show_search": True,
+        "show_all_applications": True,
+        "navigation": [
+            {
+                "title": "Manajemen Data Utama",
+                "separator": True,
+                "items": [
+                    {
+                        "title": "Pengguna & Mekanik",
+                        "icon": "group",
+                        "link": reverse_lazy("admin:authentication_user_changelist"),
+                    },
+                    {
+                        "title": "Pesanan Darurat (Orders)",
+                        "icon": "car_repair",
+                        "link": reverse_lazy("admin:orders_order_changelist"),
+                    },
+                ],
+            },
+            {
+                "title": "Dokumentasi API & Developer",
+                "separator": True,
+                "items": [
+                    {
+                        "title": "Swagger API UI",
+                        "icon": "api",
+                        "link": reverse_lazy("swagger-ui"),
+                    },
+                    {
+                        "title": "ReDoc API Spec",
+                        "icon": "description",
+                        "link": reverse_lazy("redoc"),
+                    },
+                ],
+            },
+        ],
+    },
+}
 

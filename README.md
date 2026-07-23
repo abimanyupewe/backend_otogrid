@@ -37,7 +37,7 @@ Sistem backend ini dibangun menggunakan Django & Django REST Framework (DRF) ber
 | **Broker & Cache** | Redis Server 8.0+ | ![Redis](https://img.shields.io/badge/Redis-DC382D?style=flat-square&logo=redis&logoColor=white) |
 | **Real-time Protocol** | Django Channels & WebSockets (WSS) | ![WebSockets](https://img.shields.io/badge/WebSockets-010101?style=flat-square&logo=socketdotio&logoColor=white) |
 | **AI Triage Engine** | Google Gemini API (`google-generativeai`) | ![Google Gemini](https://img.shields.io/badge/Google_Gemini-8E75B2?style=flat-square&logo=googlegemini&logoColor=white) |
-| **API Documentation** | `drf-spectacular` (OpenAPI 3.0) | ![Swagger](https://img.shields.io/badge/Swagger-85EA2D?style=flat-square&logo=swagger&logoColor=black) |
+| **Admin Dashboard UI** | Django Unfold (`django-unfold` Tailwind CSS) | ![TailwindCSS](https://img.shields.io/badge/Tailwind_CSS-38B2AC?style=flat-square&logo=tailwind-css&logoColor=white) ![Django Unfold](https://img.shields.io/badge/Django_Unfold-092E20?style=flat-square&logo=django&logoColor=white) |
 | **Authentication** | SimpleJWT (JSON Web Tokens) | ![JWT](https://img.shields.io/badge/JWT-000000?style=flat-square&logo=jsonwebtokens&logoColor=white) |
 
 ---
